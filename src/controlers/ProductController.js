@@ -3,7 +3,7 @@ const Product = mongo.model('Product');
 
 module.exports = {
     async index(req,res){
-        const { page = 1 } = req.query;
+        const page = req.query.page;
         
         const products = await Product.paginate({},{page, limit: 2});
         return res.json(products);
